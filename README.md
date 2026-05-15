@@ -1,0 +1,2 @@
+# InvariantFisherMetricsandCubicTensors
+Differential geometry of statistical submanifolds parametrized by
