@@ -1,11 +1,10 @@
-# InvariantFisherMetricsandCubicTensors
-# Invariant Fisher Metrics and Cubic Tensors on Lie-Algebraic Statistical Submanifolds
+# Invariant Cubic Tensors and Fisher Geometry on Homogeneous Statistical Manifolds
 
 This repository contains the numerical experiments for the paper:
-
-> **Invariant Fisher Metrics and Cubic Tensors on Lie-Algebraic Statistical Submanifolds**
+ 
+> **Invariant Cubic Tensors and Fisher Geometry on Homogeneous Statistical Manifolds**
 > Sooraj K.C and Vivek Mishra
-> *Submitted to Annals of Global Analysis and Geometry*
+> *Submitted to Differential Geometry and its Applications*
 
 ## Overview
 
@@ -70,9 +69,9 @@ If you use this code, please cite:
 
 ```bibtex
 @article{kc2026invariant,
-  title={Invariant Fisher Metrics and Cubic Tensors on Lie-Algebraic Statistical Submanifolds},
+  title={Invariant Cubic Tensors and Fisher Geometry on Homogeneous Statistical Manifolds},
   author={K.C, Sooraj and Mishra, Vivek},
-  journal={Annals of Global Analysis and Geometry},
+  journal={Differential Geometry and its Applications},
   year={2026},
   note={Submitted}
 }
