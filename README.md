@@ -1,81 +1,89 @@
-# Invariant Cubic Tensors and Fisher Geometry on Homogeneous Statistical Manifolds
+# InvariantCubicTensors
 
-This repository contains the numerical experiments for the paper:
- 
-> **Invariant Cubic Tensors and Fisher Geometry on Homogeneous Statistical Manifolds**
-> Sooraj K.C and Vivek Mishra
-> *Submitted to Differential Geometry and its Applications*
+Numerical checks for the paper
 
-## Overview
+    Invariant Cubic Tensors and Bi-invariant Statistical Structures on
+    Compact Simple Lie Groups
+    Sooraj K.C and Vivek Mishra
+    Differential Geometry and its Applications, revised version of
+    manuscript DGA-D-26-00227
 
-The paper studies invariant differential-geometric structures on statistical
-submanifolds parametrised by matrix Lie algebras. It proves that Fisher
-isotropy is both necessary and sufficient for the Fisher-Rao metric to induce
-the orthogonal Lie-algebraic projection structure, classifies the
-Amari-Chentsov cubic tensor under adjoint-induced isotropy via Casimir
-invariant theory, and establishes a sharp compact/non-compact distortion
-dichotomy for the matrix exponential map.
+## verify_numerics.py
 
-## Numerical Experiments
+The script recomputes the numerical values quoted in the revised paper and
+checks the algebraic identities used in Sections 4 and 5. Result numbers
+refer to the revised manuscript.
 
-The script InvariantFisherMetricsandCubicTensors.py reproduces the
-three-panel Figure 1 (Section 7):
+    [A] The cubic form d(X,Y,Z) = (i/2) tr(X{Y,Z}) and the product D on
+        su(n): reality, symmetry, Ad-invariance, duality, derivation
+        identity, sign under complex conjugation, and the normalisation
+        d(E_a,E_b,E_c) = d_abc / sqrt(2).
+        (Definition 5.1, Lemma 5.2)
 
-| Panel | Description | Result validated |
-|---|---|---|
-| (a) Alignment bound tightness | 500 random Fisher matrices in R^{9x9} per kappa | Proposition 4.5 -- Kantorovich bound 2*sqrt(kappa)/(kappa+1) |
-| (b) Alignment along trajectories | Parametric path on so(3) with J(theta) = -tr(W exp(theta)) | Proposition 4.5 -- bound holds uniformly |
-| (c) Smoothness dichotomy | Empirical Lipschitz constants on so(3) vs sl(2) | Lemma 7.1 -- compact: O(1), non-compact: O(e^R) |
+    [B] Curvature of the alpha-connections, the dimension of the
+        ad-invariant symmetric cubic forms on so(3), so(4), so(5) and
+        so(6), the Pfaffian on so(6), and the invariance of x1 x2 x3
+        under the tetrahedral group.
+        (Corollary 5.4, Theorem 5.3, Remarks 5.6 and 5.7)
 
-## Repository Structure
+    [C] c(beta) and lambda(beta) for the transformation model
+        rho_beta ~ exp(beta Im tr x) on SU(3), by Weyl integration,
+        and the slope tau'(0) = -1/2 of tau = lambda/c.
+        (Example 5.13, Corollary 5.14)
 
-```
-InvariantFisherMetricsandCubicTensors/
-    README.md
-    requirements.txt
-    InvariantFisherMetricsandCubicTensors.py
-    fig_numerical_illustrations.pdf
-    fig_numerical_illustrations.png
-```
+    [D] Monte Carlo with 4e6 Haar samples of SU(3): the exponential family
+        of Example 5.12 at theta = 0 and theta = e_8, and Example 5.13 at
+        beta = 1.
+        (Examples 5.12 and 5.13, Remark 5.15)
+
+    [E] The Kantorovich bound 2 sqrt(kappa) / (kappa + 1), its equality
+        case, and the bound sqrt(1 - eps^2) under approximate isotropy.
+        (Proposition 4.4)
+
+    [F] The leading coefficients a_n and b_n of c(beta) and lambda(beta)
+        for the densities exp(beta Im tr(x + x^2)) on SU(n), n = 4, ..., 7,
+        by exact Weyl integration on the maximal torus, together with the
+        normalisation sum d(E_a,E_b,E_c)^2 = (n^2-4)(n^2-1)/(2n) that the
+        comparison uses. The n = 3 density of Example 5.13 is included as a
+        check. (Corollary 5.14)
+
+verify_output.txt is the output of a complete run. All random numbers are
+seeded, so a run reproduces this file up to rounding differences between
+platforms.
 
 ## Installation
 
-```bash
-git clone https://github.com/soorajkcphd/InvariantFisherMetricsandCubicTensors.git
-cd InvariantFisherMetricsandCubicTensors
-pip install -r requirements.txt
-```
+    git clone https://github.com/soorajkcphd/InvariantCubicTensors.git
+    cd InvariantCubicTensors
+    pip install -r requirements.txt
 
 ## Usage
 
-```bash
-python InvariantFisherMetricsandCubicTensors.py
-```
-
-This generates fig_numerical_illustrations.pdf and fig_numerical_illustrations.png.
+    python verify_numerics.py          # all checks (about five minutes)
+    python verify_numerics.py --fast   # without the Monte Carlo block [D]
 
 ## Requirements
 
-- Python >= 3.9
-- NumPy >= 1.24
-- SciPy >= 1.10 (matrix exponential via scipy.linalg.expm)
-- Matplotlib >= 3.7
+Python 3.9 or later, NumPy 1.24 or later, SciPy 1.10 or later.
+Matplotlib 3.7 or later is needed only for the first-version script below.
 
-No specialized optimization software is required.
+## First version
+
+InvariantFisherMetricsandCubicTensors.py and the figure files
+fig_numerical_illustrations.pdf and fig_numerical_illustrations.png belong
+to the first version of the manuscript (Figure 1 there). The figure and the
+corresponding section were removed in the revision.
 
 ## Citation
 
-If you use this code, please cite:
-
-```bibtex
-@article{kc2026invariant,
-  title={Invariant Cubic Tensors and Fisher Geometry on Homogeneous Statistical Manifolds},
-  author={K.C, Sooraj and Mishra, Vivek},
-  journal={Differential Geometry and its Applications},
-  year={2026},
-  note={Submitted}
-}
-```
+    @article{kc2026invariant,
+      title   = {Invariant Cubic Tensors and Bi-invariant Statistical Structures
+                 on Compact Simple Lie Groups},
+      author  = {K.C, Sooraj and Mishra, Vivek},
+      journal = {Differential Geometry and its Applications},
+      year    = {2026},
+      note    = {Submitted}
+    }
 
 ## License
 
