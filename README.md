@@ -28,8 +28,8 @@ refer to the revised manuscript.
 
     [C] c(beta) and lambda(beta) for the transformation model
         rho_beta ~ exp(beta Im tr x) on SU(3), by Weyl integration,
-        and the slope tau'(0) = -1/2 of tau = lambda/c.
-        (Example 5.13, Corollary 5.14)
+        and the value of lambda/(c beta) at small beta, which tends
+        to -1/2. (Example 5.13)
 
     [D] Monte Carlo with 4e6 Haar samples of SU(3): the exponential family
         of Example 5.12 at theta = 0 and theta = e_8, and Example 5.13 at
@@ -40,12 +40,14 @@ refer to the revised manuscript.
         case, and the bound sqrt(1 - eps^2) under approximate isotropy.
         (Proposition 4.4)
 
-    [F] The leading coefficients a_n and b_n of c(beta) and lambda(beta)
-        for the densities exp(beta Im tr(x + x^2)) on SU(n), n = 4, ..., 7,
-        by exact Weyl integration on the maximal torus, together with the
-        normalisation sum d(E_a,E_b,E_c)^2 = (n^2-4)(n^2-1)/(2n) that the
-        comparison uses. The n = 3 density of Example 5.13 is included as a
-        check. (Corollary 5.14)
+    [F] The realisation theorem on SU(n): the averages of tr S0^2 and
+        tr S0^3 over the maximal torus for n = 3, ..., 7 (Step 4 of the
+        proof), the identity (5) between Haar averages of class functions
+        of x^k and torus averages, on SU(3) with k = 5 and on SU(4) with
+        k = 7, and the realised ratio lambda/c = 5 on SU(3) quoted in
+        Remark 5.15. The normalisation
+        sum d(E_a,E_b,E_c)^2 = (n^2-4)(n^2-1)/(2n) is checked for
+        n = 4, 5, 6. (Theorem 5.14)
 
 verify_output.txt is the output of a complete run. All random numbers are
 seeded, so a run reproduces this file up to rounding differences between
