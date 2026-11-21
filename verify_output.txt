@@ -18,12 +18,13 @@
    so(6): dim of ad-invariant symmetric cubic forms = 1;  commutant of ad has dim 1
    tetrahedral group: order 12, commutant dim 1 (irreducible), x1x2x3 invariant: True
 
-[C] Weyl integration on SU(3): rho_beta ~ exp(beta Im tr x)  (Example 5.13)
+[C] Weyl integration on SU(3): rho_beta ~ exp(beta Im tr x)  (Example 5.13, Table 1)
    Haar: E[tr H0^2] = 1.3333333333 (4/3),  E[tr H0^3] = 0.5555555556 (5/9)
    beta= 0.25: c = 0.0104166 (beta^2/6 = 0.0104167),  lambda = -0.0012970 (-beta^3/12 = -0.0013021)
    beta= 0.50: c = 0.0416600 (beta^2/6 = 0.0416667),  lambda = -0.0102549 (-beta^3/12 = -0.0104167)
    beta= 1.00: c = 0.1662708 (beta^2/6 = 0.1666667),  lambda = -0.0782669 (-beta^3/12 = -0.0833333)
    beta=-1.00: c = 0.1662708 (beta^2/6 = 0.1666667),  lambda = +0.0782669 (-beta^3/12 = +0.0833333)
+   beta= 1.00: lambda/c = -0.470719  (Table 1)
    rho ~ exp(beta Re tr x), beta=1: c = 0.2030751, lambda = 2.1e-18 (vanishes by inversion symmetry)
    lambda/(c beta) at beta=0.01: -0.499997 (-1/2 by the expansions of Example 5.13)
 
@@ -36,7 +37,7 @@
       first-order values 1/3 + d_aa8/6: [0.23711 0.28522 0.28522 0.28522 0.28522 0.42956 0.42956 0.42956]
    Example 5.13, beta=1: c = 0.16627 +- 0.00004,  lambda = -0.07828 +- 0.00004
 
-[E] Kantorovich bound  (Proposition 4.4)
+[E] Kantorovich bound  (Section 4)
    equality case: cos = 0.56567325, bound 2 sqrt(k)/(k+1) = 0.56567325, min over 20000 random v = 0.576015
    eps=0.1: 2 sqrt(k)/(k+1) at k=(1+eps)/(1-eps) equals sqrt(1-eps^2): True
    eps=0.5: 2 sqrt(k)/(k+1) at k=(1+eps)/(1-eps) equals sqrt(1-eps^2): True
@@ -55,6 +56,6 @@
    identity (5) at beta = 0.25, Haar average of class functions of x^k against the torus average:
    SU(3), k=5: E[tr S0^2] = 4.9309284640 (torus 4.9309284640),  E[tr S0^3] = 3.8251810295 (torus 3.8251810295)
    SU(4), k=7: E[tr S0^2] = 7.5460417699 (torus 7.5460417699),  E[tr S0^3] = 2.1713164444 (torus 2.1713164444)
-   SU(3), k=10, beta = -0.61585: c = 21.8812, lambda = 109.4059, lambda/c = 5.000000  (Remark 5.15)
+   SU(3), k=10, beta = -0.61585: c = 21.8814, lambda = 109.4075, lambda/c = 5.000020  (Table 1)
 
 Done.

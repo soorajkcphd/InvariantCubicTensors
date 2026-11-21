@@ -15,10 +15,10 @@ Output blocks (numbering of the revised manuscript):
   [B] curvature identity (Corollary 5.4), invariant cubics on so(n)
       (Theorem 5.3, Remark 5.7), Pfaffian on so(6), tetrahedral group
       (Remark 5.6)
-  [C] c(beta) and lambda(beta) by Weyl integration: Example 5.13
+  [C] c(beta) and lambda(beta) by Weyl integration: Example 5.13, Table 1
   [D] Monte Carlo on SU(3): Examples 5.12 and 5.13, Remark 5.15
-  [E] Kantorovich bound: Proposition 4.4
-  [F] powers and torus averages on SU(n): Theorem 5.14
+  [E] Kantorovich bound: Section 4
+  [F] powers and torus averages on SU(n): Theorem 5.14, Table 1
 """
 import itertools
 import sys
@@ -247,13 +247,15 @@ def weyl(beta, N=600, kind="im"):
 
 
 def check_c():
-    print("\n[C] Weyl integration on SU(3): rho_beta ~ exp(beta Im tr x)  (Example 5.13)")
+    print("\n[C] Weyl integration on SU(3): rho_beta ~ exp(beta Im tr x)  (Example 5.13, Table 1)")
     t2, t3 = weyl(0.0)
     print("   Haar: E[tr H0^2] = %.10f (4/3),  E[tr H0^3] = %.10f (5/9)" % (t2, t3))
     for b in (0.25, 0.5, 1.0, -1.0):
         t2, t3 = weyl(b)
         print("   beta=%5.2f: c = %.7f (beta^2/6 = %.7f),  lambda = %+.7f (-beta^3/12 = %+.7f)"
               % (b, b * b * t2 / 8, b * b / 6, -(3 / 20) * b ** 3 * t3, -b ** 3 / 12))
+    t2, t3 = weyl(1.0)
+    print("   beta= 1.00: lambda/c = %.6f  (Table 1)" % ((-(3 / 20) * t3) / (t2 / 8)))
     t2, t3 = weyl(1.0, kind="re")
     print("   rho ~ exp(beta Re tr x), beta=1: c = %.7f, lambda = %.1e (vanishes by inversion symmetry)"
           % (t2 / 8, -(3 / 20) * t3))
@@ -326,7 +328,7 @@ def check_d():
 
 
 def check_e():
-    print("\n[E] Kantorovich bound  (Proposition 4.4)")
+    print("\n[E] Kantorovich bound  (Section 4)")
     dim = 7
     Q, _ = np.linalg.qr(rng.normal(size=(dim, dim)))
     ev = np.sort(rng.uniform(0.5, 9, size=dim))
@@ -412,7 +414,8 @@ def check_f():
         t2, t3 = torus_moments(n, 1, 0.25, N, False)
         print("   SU(%d), k=%d: E[tr S0^2] = %.10f (torus %.10f),  E[tr S0^3] = %.10f (torus %.10f)"
               % (n, k, h2, t2, h3, t3))
-    # one realised ratio on SU(3): solve g(beta) = -tau/k on the torus, then integrate over SU(3) directly
+    # one realised ratio on SU(3): solve g(beta) = -tau/k on the torus, round beta to the five decimals
+    # quoted in Table 1, then integrate over SU(3) directly
     k, tau = 10, 5.0
 
     def g(b):
@@ -426,11 +429,11 @@ def check_f():
             lo = mid
         else:
             hi = mid
-    b = (lo + hi) / 2
+    b = round((lo + hi) / 2, 5)
     h2, h3 = torus_moments(3, k, b, 900, True)
     c = (k * b) ** 2 * h2 / 8
     lam = -(k * b) ** 3 * h3 / (20 / 3)
-    print("   SU(3), k=%d, beta = %.5f: c = %.4f, lambda = %.4f, lambda/c = %.6f  (Remark 5.15)"
+    print("   SU(3), k=%d, beta = %.5f: c = %.4f, lambda = %.4f, lambda/c = %.6f  (Table 1)"
           % (k, b, c, lam, lam / c))
 
 
